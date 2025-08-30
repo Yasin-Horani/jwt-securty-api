@@ -1,0 +1,5 @@
+app:
+  jwt:
+    secret: my-secret-key-is-my-key-on-the-table
+    issuer: jwt-secuty-api
+    expMinutes: 15
