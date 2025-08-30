@@ -23,12 +23,12 @@ public class CoureseController {
         return this.coursesService.courses();
     }
 
-    @GetMapping(path = "/my-courses")
+    @GetMapping(path = "/my-courses") // user
     public List<CourseDTO> myCourses() {
         return coursesService.findAllByUserId(1);
     }
 
-    @GetMapping(path = "/my-courses/{userId}")
+    @GetMapping(path = "/my-courses/{userId}") // admin
     public List<CourseDTO> anyUserCourses(@PathVariable Integer userId) {
         return coursesService.findAllByUserId(userId);
     }
