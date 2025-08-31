@@ -14,9 +14,11 @@ public class CourseRepo {
     private final AtomicInteger seq = new AtomicInteger(1);
 
     public CourseRepo() {
-        this.courses.add(new CourseDTO(seq.getAndIncrement(), 1,"user", "java Course", "for java developers"));
-        this.courses.add(new CourseDTO(seq.getAndIncrement(), 1,"user", "Spring boot Course", "for java developer"));
-        this.courses.add(new CourseDTO(seq.getAndIncrement(), 2,"admin", "Python Course", "for Python developer"));
+        this.courses.add(new CourseDTO(seq.getAndIncrement(), "user", "java Course", "for java developers"));
+        this.courses.add(new CourseDTO(seq.getAndIncrement(), "user", "Spring boot Course", "for java developer"));
+        this.courses.add(new CourseDTO(seq.getAndIncrement(), "admin", "Python Course", "for Python developer"));
+        this.courses.add(new CourseDTO(seq.getAndIncrement(), "Yasin", "Clean Code", "for all developer"));
+        this.courses.add(new CourseDTO(seq.getAndIncrement(), "Yasin", "C#", "for C# developer"));
     }
 
     public List<CourseDTO> findAll() {
