@@ -21,7 +21,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableMethodSecurity
-public class SecurtyCofig {
+public class SecurityCofig {
 
     @Bean
     public SecurityFilterChain configure(HttpSecurity http, JwtAuthenticationConverter getJwtAuthenticationConverter) throws Exception {
