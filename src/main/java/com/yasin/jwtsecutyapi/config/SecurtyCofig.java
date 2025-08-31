@@ -65,7 +65,12 @@ public class SecurtyCofig {
                 .roles("USER")
                 .build();
 
-        return new InMemoryUserDetailsManager(admin, user);
+        UserDetails yasin = User.withUsername("user")
+                .password(passwordEncoder.encode("yasin@123"))
+                .roles("USER")
+                .build();
+
+        return new InMemoryUserDetailsManager(admin, user, yasin);
     }
 
     @Bean
