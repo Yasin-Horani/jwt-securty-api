@@ -29,7 +29,7 @@ public class SecurtyCofig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth.requestMatchers("/courses/all", "/auth").permitAll()
-                        .requestMatchers("/courses/my-courses").authenticated()
+                        .requestMatchers("/courses/my-courses").hasRole("USER")
                         .requestMatchers("/courses/my-my-courses/**").hasRole("ADMIN")
                 )
                 .oauth2ResourceServer(oauth2 -> oauth2
