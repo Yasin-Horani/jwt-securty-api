@@ -18,7 +18,7 @@ public class CoursesService {
         return this.courseRepo.findAll();
     }
 
-    public List<CourseDTO> findAllByUserId(Integer userId){
-        return this.courseRepo.findAllByUserId(userId);
+    public List<CourseDTO> findAllByUsername(String username){
+        return this.courseRepo.findAllByUsername(username);
     }
 }

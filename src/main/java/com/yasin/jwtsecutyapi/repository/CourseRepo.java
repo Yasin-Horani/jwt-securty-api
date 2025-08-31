@@ -14,18 +14,18 @@ public class CourseRepo {
     private final AtomicInteger seq = new AtomicInteger(1);
 
     public CourseRepo() {
-        this.courses.add(new CourseDTO(seq.getAndIncrement(), 1, "java Course", "for java developers"));
-        this.courses.add(new CourseDTO(seq.getAndIncrement(), 1, "Spring boot Course", "for java developer"));
-        this.courses.add(new CourseDTO(seq.getAndIncrement(), 2, "Python Course", "for Python developer"));
+        this.courses.add(new CourseDTO(seq.getAndIncrement(), 1,"user", "java Course", "for java developers"));
+        this.courses.add(new CourseDTO(seq.getAndIncrement(), 1,"user", "Spring boot Course", "for java developer"));
+        this.courses.add(new CourseDTO(seq.getAndIncrement(), 2,"admin", "Python Course", "for Python developer"));
     }
 
     public List<CourseDTO> findAll() {
         return List.copyOf(courses);
     }
 
-    public List<CourseDTO> findAllByUserId(Integer userId) {
+    public List<CourseDTO> findAllByUsername(String username) {
         return courses.stream()
-                .filter(c -> c.userId().equals(userId))
+                .filter(c -> c.username().equals(username))
                 .toList();
     }
 
