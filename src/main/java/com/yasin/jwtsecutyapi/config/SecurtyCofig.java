@@ -29,12 +29,15 @@ public class SecurtyCofig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth.requestMatchers("/courses/all", "/auth").permitAll()
-                        .requestMatchers("/courses/my-courses").authenticated())
+                        .requestMatchers("/courses/my-courses").authenticated()
+                        .requestMatchers("/courses/my-my-courses/**").hasRole("ADMIN")
+                )
                 .oauth2ResourceServer(oauth2 -> oauth2
-                        .jwt(jwt->jwt.jwtAuthenticationConverter(jwtAuthenticationConverter()))
+                        .jwt(jwt -> jwt.jwtAuthenticationConverter(jwtAuthenticationConverter()))
                 )
                 .build();
     }
+
     @Bean
     public JwtAuthenticationConverter jwtAuthenticationConverter() {
         JwtGrantedAuthoritiesConverter granted = new
@@ -44,6 +47,7 @@ public class SecurtyCofig {
         converter.setJwtGrantedAuthoritiesConverter(granted);
         return converter;
     }
+
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
