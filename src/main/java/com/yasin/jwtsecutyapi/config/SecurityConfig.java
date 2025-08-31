@@ -21,7 +21,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableMethodSecurity
-public class SecurityConfig {
+public class SecurityConfig  {
 
     @Bean
     public SecurityFilterChain configure(HttpSecurity http) throws Exception {
@@ -30,7 +30,7 @@ public class SecurityConfig {
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth.requestMatchers("/courses/all", "/auth").permitAll()
                         .requestMatchers("/courses/my-courses").hasRole("USER")
-                        .requestMatchers("/courses/my-my-courses/**").hasRole("ADMIN")
+                        .requestMatchers("/courses/my-courses/**").hasRole("ADMIN")
                 )
                 .oauth2ResourceServer(oauth2 -> oauth2
                         .jwt(jwt -> jwt.jwtAuthenticationConverter(jwtAuthenticationConverter()))
