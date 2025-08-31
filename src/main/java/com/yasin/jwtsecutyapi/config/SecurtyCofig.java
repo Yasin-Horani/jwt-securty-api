@@ -65,7 +65,7 @@ public class SecurtyCofig {
                 .roles("USER")
                 .build();
 
-        UserDetails yasin = User.withUsername("user")
+        UserDetails yasin = User.withUsername("yasin")
                 .password(passwordEncoder.encode("yasin@123"))
                 .roles("USER")
                 .build();
